@@ -1,0 +1,59 @@
+﻿<Page
+    x:Class="EventoApp.Views.EventsView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EventoApp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <!--TitlePanel -->
+        <StackPanel Grid.Row="1" Margin="0,-43,12,0" Height="30" VerticalAlignment="Top" d:LayoutOverrides="TopMargin, BottomMargin">
+            <TextBlock Text="All Events" TextWrapping="Wrap" Margin="51,-7,163,0" FontSize="28" d:LayoutOverrides="HorizontalAlignment"/>
+            <AutoSuggestBox Name="searchBox" Margin="0,-32,12,0" Height="28" BorderBrush="Black" QueryIcon="Find" HorizontalAlignment="Right" Width="140"  RelativePanel.AlignRightWithPanel="True" TextChanged="searchBox_TextChanged" />
+
+        </StackPanel>
+        <ListView x:Name="EventoListView" SelectionChanged="EventoListView_SelectionChanged" BorderBrush="#FF141EE4" Margin="0,6,0,0" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin, TopPosition, BottomPosition">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <StackPanel BorderBrush="Black">
+                            <Ellipse x:Name="Ellipse"
+                                 Grid.RowSpan="1"
+                                 Margin="6"
+                                 VerticalAlignment="Top"
+                         Width ="100"
+                         Height="100"
+                         HorizontalAlignment="Left"
+                          >
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding ImagePath}"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <ListViewItem Name="TitleListView">
+                                <TextBlock x:Name="EventTitle" TextWrapping="Wrap" Text="{Binding CreateEventTitle}" FontSize="18" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Stretch" />
+                            </ListViewItem>
+                            <TextBlock x:Name="EventVenue" TextWrapping="Wrap" Text="{Binding CreateEventVenue}" FontSize="16" Foreground="Black" HorizontalAlignment="Right" />
+                            
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+    </Grid>
+</Page>

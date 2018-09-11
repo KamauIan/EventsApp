@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="EventoApp.Views.CreateEventView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EventoApp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <RelativePanel Style="{StaticResource EventoRelativePanelStyle}" Background="White" Height="45" VerticalAlignment="Top">
+            <TextBlock Margin="0,-38,-223,6" TextWrapping="Wrap" Text="Create An Event" FontSize="22" FontFamily="Arial" Foreground="#FF3399FF" HorizontalAlignment="Right" Width="175"/>
+        </RelativePanel>
+
+        <Grid Margin="4,0,-4,0" BorderBrush="Black" Height="640" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="115*"/>
+                <ColumnDefinition Width="3"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBox x:Name="CreateEventTitle" Height="32" Margin="10,11,148,0" Grid.RowSpan="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" PlaceholderText="Event Title/Name"/>
+            <TextBox x:Name="CreateEventVenue" Height="32" Margin="10,57,148,0" Grid.RowSpan="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" PlaceholderText="Event Venue/Location"/>
+            <TextBox x:Name="CreateEventTag" Height="32" Margin="10,104,148,0" Grid.RowSpan="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" PlaceholderText="Type of Event/Tag"/>
+            <TextBox x:Name="CreateEventGuests" Height="34" Margin="10,153,148,0" Grid.RowSpan="2" TextWrapping="Wrap" Text="" VerticalAlignment="Top" PlaceholderText="Guest Appearances"/>
+            <TextBox x:Name="CreateEventDescription" Margin="10,300,148,0" Grid.RowSpan="2" TextWrapping="Wrap" Text="" PlaceholderText="Event Description" Height="140" VerticalAlignment="Top"/>
+
+            <DatePicker x:Name="CreateEventDate" HorizontalAlignment="Stretch" Margin="11,201,146,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="198" MinWidth="200" Height="33"/>
+            <TimePicker x:Name="CreateEventTime" HorizontalAlignment="Stretch" Margin="11,247,146,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="200" MinWidth="200" Height="35" d:LayoutOverrides="Height"/>
+            <Image x:Name="EventPosterImage" HorizontalAlignment="Right" Height="75" Margin="0,54,10,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="127"/>
+            <Button x:Name="PickAFileButton" 
+                    Content="Choose Poster Image" 
+                    HorizontalAlignment="Right" 
+                    Margin="0,11,4,0" 
+                    Grid.RowSpan="2" 
+                    VerticalAlignment="Top" 
+                    Width="136" 
+                    FontSize="12"
+                    Click="PickAFileButton_Click" Height="38"/>
+            <TextBox x:Name="ImagePath" 
+                           TextWrapping="Wrap" 
+                           Margin="0,153,10,0" 
+                           Grid.Row="1" 
+                           HorizontalAlignment="Right" 
+                           Width="127" Height="72" VerticalAlignment="Top"/>
+            <Button x:Name="CreateEventPostBtn" Content="Post" HorizontalAlignment="Stretch" Margin="12,463,146,0" Grid.RowSpan="2" VerticalAlignment="Top" Background="#FF3FA9F1" FocusVisualPrimaryBrush="#FF3399FF" Click="CreateEventPostBtn_Click" Height="39"/>
+            <ScrollViewer Margin="-5,29,0,0" Grid.RowSpan="2" Grid.Column="1" d:LayoutOverrides="LeftPosition, RightPosition"/>
+
+
+
+        </Grid>
+
+    </Grid>
+</Page>
